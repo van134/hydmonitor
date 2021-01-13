@@ -1,0 +1,33 @@
+/* pages/login/login.wxss */
+/* 选择 */
+.non{
+  display: none;
+}
+
+.page
+{
+  width: 100vw;
+  height: 100wh;
+  background:rgba(245,244,249,1);
+}
+
+.wrapper{
+  width: 100%;
+  height: 100%;
+}
+
+.content{
+  padding: 20rpx 40rpx;
+}
+.phone{
+  line-height: 50rpx;
+  margin: 30rpx 10rpx;
+  padding: 10rpx;
+  border-bottom: 1px #EEEEEE solid;
+  display: flex;
+  flex-direction: row;
+}
+.phone label{
+  display: inline-block;
+  width:150rpx;
+}

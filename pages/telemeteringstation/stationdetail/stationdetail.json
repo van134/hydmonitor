@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "遥测站详情",
+  "usingComponents": {
+    "table-view": "../../../../miniprogram_npm/miniprogram-table-component"
+  }
+}

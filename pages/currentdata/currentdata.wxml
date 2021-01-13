@@ -1,0 +1,11 @@
+
+<view class="pannel-view" wx:for="{{list}}">
+  <view style="margin:20rpx;width:90%;">{{item.title}}</view>
+  <table-view
+    headers="{{item.tableHeader}}" 
+    data="{{ item.data }}" 
+    stripe="{{ stripe }}"
+    border="{{ border }}"
+    bind:rowClick="onRowClick"
+/>
+</view>

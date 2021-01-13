@@ -1,0 +1,45 @@
+<picker bindchange="bindStationPickerChange" value="{{subStationIndex}}" range="{{subStationList}}">
+  <view class="row-view between-view pannel-view">
+    <label>分站选择</label>
+    <label>{{subStationList[subStationIndex]}}</label>
+  </view>
+</picker>
+
+<picker mode="date" value="{{startDate}}" start="2015-09-01" end="2030-09-01" bindchange="bindStartDateChange">
+  <view class="row-view between-view pannel-view">
+    <label>开始时间</label>
+    <label>{{startDate}}</label>
+  </view>
+</picker>
+
+<picker mode="date" value="{{endDate}}" start="2015-09-01" end="2030-09-01" bindchange="bindEndDateChange">
+  <view class="row-view between-view pannel-view">
+    <label>结束时间</label>
+    <label>{{endDate}}</label>
+  </view>
+</picker>
+
+<picker bindchange="bindLineTypePickerChange" value="{{lineTypeIndex}}" range="{{lineTypeList}}">
+  <view class="row-view between-view pannel-view">
+    <label>曲线类型</label>
+    <label>{{lineTypeList[lineTypeIndex]}}</label>
+  </view>
+</picker>
+
+<button class="search-btn" bindtap="searchClick">查询</button>
+
+<view class="col-view pannel-view" style="over-flow:auto;" wx:if="{{data.length>0}}">
+  <view style="margin-bottom:20rpx;width:90%;">变化曲线</view>
+  <canvas class="echarts" canvas-id="lineCanvas" ></canvas>  
+</view>
+
+<view class="col-view pannel-view" wx:if="{{data.length>0}}">
+  <view style="margin-bottom:20rpx;width:90%;">数据列表</view>
+  <table-view
+    headers="{{tableHeader}}" 
+    data="{{ data }}" 
+    stripe="{{ stripe }}"
+    border="{{ border }}"
+    bind:rowClick="onRowClick"
+/>
+</view>

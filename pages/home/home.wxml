@@ -1,0 +1,5 @@
+<!-- <button bindtap="changeData">修改数据</button> -->
+<view class="col-view pannel-view" wx:for="{{list}}">
+  <view style="margin-top:20rpx;">{{item.title}}</view>
+  <canvas class="echarts" canvas-id="{{item.id}}"></canvas>  
+</view>

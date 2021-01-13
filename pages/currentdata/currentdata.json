@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "实时数据",
+  "usingComponents": {
+    "table-view": "../../../miniprogram_npm/miniprogram-table-component"
+  }
+  
+}

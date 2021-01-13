@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/home/home",
+    "pages/currentdata/currentdata",
+    "pages/telemeteringstation/telemeteringstation",
+    "pages/telemeteringstation/stationdetail/stationdetail",
+    "pages/mine/mine",
+  
+    "pages/updatepwd/updatepwd",
+    "pages/updateuserinfo/updateuserinfo"
+  ],
+  "tabBar": {
+    "color": "#aaaaaa",
+    "selectedColor": "#1296db",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "image/icon_home_a.png",
+        "selectedIconPath": "image/icon_home_b.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/currentdata/currentdata",
+        "iconPath": "image/icon_realtime_a.png",
+        "selectedIconPath": "image/icon_realtime_b.png",
+        "text": "实时"
+      },
+      {
+        "pagePath": "pages/telemeteringstation/telemeteringstation",
+        "iconPath": "image/icon_station_a.png",
+        "selectedIconPath": "image/icon_station_b.png",
+        "text": "遥测站"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "image/icon_wo_a.png",
+        "selectedIconPath": "image/icon_wo_b.png",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "水文监测",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

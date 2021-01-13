@@ -1,0 +1,3 @@
+<view class="col-view pannel-view" wx:for="{{list}}"  data-index="{{index}}" bindtap="itemClick">
+  <view style="margin:40rpx;">{{item.title}}</view>
+</view>

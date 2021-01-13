@@ -1,0 +1,29 @@
+<!--pages/login/login.wxml-->
+<!-- <text>pages/login/login.wxml</text> -->
+
+<view class='wrapper'>
+   <view class='content'>
+      <view class='phone'>
+        <input bindinput="userNameInput" placeholder='请输入账号' value="{{userName}}"></input>
+      </view>
+      <view class='phone'>
+        <input bindinput="pwdInput"  placeholder='请输入密码' value="{{pwd}}"></input> 
+      </view>  
+      <view class='agreement'>
+        <checkbox checked='{{checked}}' bindtap="checkboxChange"/>
+         <label >记住密码</label>
+      </view>
+       <view  style="width:100%;"> 
+        <!-- <button style='width:100%;background:#F56358;color:white;border-radius:50rpx;' wx:if="{{true}}" open-type="getUserInfo" bindgetuserinfo="getVerCode" >
+          立即登录
+        </button> -->
+        <button style='width:100%;background:#F56358;color:white;border-radius:50rpx;margin-top:30rpx;' bindtap="loginIn" >
+          立即登录
+        </button>
+      </view> 
+   </view>
+   <loading hidden="{{loadingHidden}}">
+ 加载中...
+</loading>
+</view>
+

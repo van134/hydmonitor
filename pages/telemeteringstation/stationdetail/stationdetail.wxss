@@ -1,0 +1,44 @@
+page {
+  background-color: #f6f6f6;
+  padding:0rpx;
+}
+.row-view{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap:wrap;
+}
+.col-view{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap:wrap;
+}
+.align-left{
+align-items: left;
+}
+.between-view{
+  justify-content: space-between;
+}
+.mar-top-20{
+  margin-top: 20rpx;
+}
+.mar-bottom-20{
+  margin-bottom: 20rpx;
+}
+.pannel-view{
+  background-color: white;
+  box-shadow:1px 3px 2px 2px lightgray;
+  margin: 30rpx;
+  padding: 25rpx 20rpx;
+  border-radius: 20rpx;
+}
+.search-btn{
+  border-radius: 20rpx;
+  color: white;
+  background-color: tomato;
+}
+.echarts{
+  height: 280px;
+  width: 650rpx;
+}

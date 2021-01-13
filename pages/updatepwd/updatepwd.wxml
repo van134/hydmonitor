@@ -1,0 +1,30 @@
+<!--pages/login/login.wxml-->
+<!-- <text>pages/login/login.wxml</text> -->
+
+<view class='wrapper'>
+   <view class='content'>
+      <view class='phone'>
+        <input bindinput="oldpwdInput" placeholder='请输入旧密码'></input>
+      </view>
+      <view class='phone'>
+        <input bindinput="pwd1Input" placeholder='请输入新密码'></input>
+      </view>
+      <view class='phone'>
+        <input bindinput="pwd2Input" placeholder='确认新密码'></input> 
+      </view> 
+  
+       <view  style="width:100%;"> 
+        <button style='width:100%;background:#F56358;color:white;border-radius:50rpx;margin-top:50rpx;' bindtap="updateClick" >
+          确认修改
+        </button>
+      </view> 
+      
+
+      
+   </view>
+   <loading hidden="{{loadingHidden}}">
+
+ 加载中...
+</loading>
+</view>
+
