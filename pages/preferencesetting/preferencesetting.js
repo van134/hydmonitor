@@ -22,13 +22,13 @@ Page({
       success: function(res) {
         console.log("地图点击事件：" + JSON.stringify(res));
         var user_longitude = res.longitude;
-        var user_lagitude = res.latitude;
+        var user_latitude = res.latitude;
         var user_address = res.address;
         var nowAddress = {};
         nowAddress["name"] = res.name;
         nowAddress["desc"] = res.address;
         that.setData({
-          lagitude: user_lagitude,
+          latitude: user_latitude,
           longitude: user_longitude,
           // addressName: user_address,
           // textData: nowAddress,
