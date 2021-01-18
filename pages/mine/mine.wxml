@@ -24,8 +24,8 @@
   </view>
 </view> --> 
 <!-- </navigator> -->
-<!-- <navigator url='jibenshezhi/jibenshezhi' > -->
-  <view class='hight-x container-view row-view between-view mar-top-1' bindtap="mkcall">
+<navigator url='/pages/preferencesetting/preferencesetting' >
+  <view class='hight-x container-view row-view between-view mar-top-1'>
     <view class='row-view'>
       <image class='icon-image' src='../../image/icon_setting.png'></image>
       <view  class='set-title'>个人偏好设置</view>
@@ -34,7 +34,7 @@
       <image class='next' src='../../image/next.png'></image>
     </view>
   </view>
-<!-- </navigator> -->
+</navigator>
 <navigator url='/pages/updateuserinfo/updateuserinfo'>
 <view class='hight-x container-view row-view between-view mar-top-1'>
   <view class='row-view'>

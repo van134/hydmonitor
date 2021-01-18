@@ -1,0 +1,19 @@
+<view class="col-view pannel-view padding-20" bindtap="itemClick">
+  <view class="row-view between-view mar-bottom-20">
+    <view>GIS地图初始位置设置</view>
+    <view style="color:blue;">地图选点</view>
+  </view>
+  <view class="row-view mar-top-20 center-view">
+    <label>经度</label>
+    <input class="mar-left-20" style="border:1px solid gray;height:50rpx;width:70%;"></input>
+  </view>
+  <view class="row-view mar-top-20 center-view">
+    <label>纬度</label>
+    <input class="mar-left-20" style="border:1px solid gray;height:50rpx;width:70%;"></input>
+  </view>
+</view>
+<view  style="width:100%;"> 
+  <button style='width:80%;background:#F56358;color:white;border-radius:50rpx;margin-top:50rpx;' bindtap="updateClick" >
+    确认修改
+  </button>
+</view> 

@@ -1,13 +1,14 @@
 {
   "pages": [
+    
     "pages/login/login",
     "pages/home/home",
     "pages/currentdata/currentdata",
     "pages/telemeteringstation/telemeteringstation",
     "pages/telemeteringstation/stationdetail/stationdetail",
     "pages/mine/mine",
-  
     "pages/updatepwd/updatepwd",
+    "pages/preferencesetting/preferencesetting",
     "pages/updateuserinfo/updateuserinfo"
   ],
   "tabBar": {
