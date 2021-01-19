@@ -30,6 +30,8 @@ Page({
   onLoad: function (options) {
     let checked = wx.getStorageSync('checked');
     let un = wx.getStorageSync("username");
+    let station = wx.getStorageSync("station");
+    
     console.log(un);
     if(checked){
       let pw = wx.getStorageSync("password");
@@ -39,6 +41,7 @@ Page({
     }
     this.setData({
       userName:un,
+      stationIndex:this.data.stationList.indexOf(station)==-1?0:this.data.stationList.indexOf(station),
       checked:checked
     });
   },
@@ -132,6 +135,7 @@ Page({
     if(this.data.checked){
       wx.setStorageSync("username",this.data.userName);
       wx.setStorageSync("password",this.data.pwd);
+      wx.setStorageSync("station",this.data.stationList[this.data.stationIndex]);
       wx.setStorageSync("time",new Date().getTime());
     }else{
       // wx.removeStorageSync("username");
@@ -139,7 +143,7 @@ Page({
       // wx.removeStorageSync("time");
     }
     app.globalData.isLogin = true;
-    app.globalData.userInfo = {userName:this.data.userName,pwd:this.data.pwd}
+    app.globalData.userInfo = {userName:this.data.userName,pwd:this.data.pwd,station:this.data.stationList[this.data.stationIndex]}
     wx.switchTab({
       url: '/pages/home/home',
     })

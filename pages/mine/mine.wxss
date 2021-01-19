@@ -81,11 +81,11 @@ margin-top: 2rpx;
 }
 .set-title{
   color: #333333;
-  font-size: 31rpx;
+  font-size: 28rpx;
 }
 .icon-image{
-  width: 50rpx;
-  height: 50rpx;
+  width: 40rpx;
+  height: 40rpx;
   margin-right: 20rpx;
 }
 .logout-btn{

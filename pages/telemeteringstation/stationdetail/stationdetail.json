@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "遥测站详情",
+  "navigationBarTitleText": "",
   "usingComponents": {
     "table-view": "../../../../miniprogram_npm/miniprogram-table-component"
   }

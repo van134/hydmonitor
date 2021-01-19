@@ -16,7 +16,7 @@
         <label>...</label>
       </view>   -->
       <picker bindchange="bindStationPickerChange" value="{{stationIndex}}" range="{{stationList}}">
-        <view class="row-view between-view phone">
+        <view class="row-view  phone">
           <label class="title">分站：</label>
           <label>{{stationList[stationIndex]}}</label>
         </view>

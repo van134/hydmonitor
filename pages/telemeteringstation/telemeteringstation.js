@@ -21,9 +21,10 @@ Page({
     }],
   },
   itemClick:function(e){
-    console.log(JSON.stringify(e.currentTarget.dataset.index));
+    let index = e.currentTarget.dataset.index;
+    let that = this;
     wx.navigateTo({
-      url: './stationdetail/stationdetail',
+      url: './stationdetail/stationdetail?title='+that.data.list[e.currentTarget.dataset.index].title+"&index="+index,
     })
   },
   onLoad: function () {
