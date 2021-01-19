@@ -10,7 +10,18 @@
   height: 100wh;
   background:rgba(245,244,249,1);
 }
-
+.row-view{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap:wrap;
+}
+.col-view{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap:wrap;
+}
 .wrapper{
   width: 100%;
   height: 100%;
@@ -23,5 +34,10 @@
   line-height: 50rpx;
   margin: 30rpx 10rpx;
   padding: 10rpx;
-  border-bottom: 1px #EEEEEE solid;
+  border-bottom: 1px #adadad solid;
+  line-height: 70rpx;
+}
+.phone .title{
+  display: inline-block;
+  width:150rpx;
 }

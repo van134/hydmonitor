@@ -3,12 +3,24 @@
 
 <view class='wrapper'>
    <view class='content'>
-      <view class='phone'>
+      <view class='row-view phone'>
+        <label class="title">账号：</label>
         <input bindinput="userNameInput" placeholder='请输入账号' value="{{userName}}"></input>
       </view>
-      <view class='phone'>
+      <view class='row-view phone'>
+        <label class="title">密码：</label>
         <input bindinput="pwdInput"  placeholder='请输入密码' value="{{pwd}}"></input> 
       </view>  
+      <!-- <view class='row-view between-view phone' style="line-height:60rpx;">
+        <label>选择分站</label>
+        <label>...</label>
+      </view>   -->
+      <picker bindchange="bindStationPickerChange" value="{{stationIndex}}" range="{{stationList}}">
+        <view class="row-view between-view phone">
+          <label class="title">分站：</label>
+          <label>{{stationList[stationIndex]}}</label>
+        </view>
+      </picker>
       <view class='agreement'>
         <checkbox checked='{{checked}}' bindtap="checkboxChange"/>
          <label >记住密码</label>

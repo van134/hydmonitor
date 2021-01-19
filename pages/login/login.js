@@ -18,7 +18,9 @@ Page({
     userName: '',
     pwd:'',
     loadingHidden: true,
-    checked: false
+    checked: false,
+    stationIndex:0,
+    stationList:['分站一','分站二','分站三'],
   },
 
 
@@ -40,7 +42,11 @@ Page({
       checked:checked
     });
   },
-
+  bindStationPickerChange:function(e){
+    this.setData({
+      stationIndex: e.detail.value
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

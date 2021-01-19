@@ -31,7 +31,7 @@ align-items: left;
   box-shadow:1px 3px 2px 2px lightgray;
   margin: 30rpx;
   padding: 25rpx 20rpx;
-  border-radius: 20rpx;
+  border-radius: 10rpx;
 }
 .search-btn{
   border-radius: 20rpx;
