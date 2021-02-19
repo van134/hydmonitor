@@ -28,7 +28,7 @@ align-items: left;
 }
 .pannel-view{
   background-color: white;
-  box-shadow:1px 3px 3px 3px lightgray;
+  box-shadow:1px 1px 1px 1px lightgray;
   margin: 20rpx 10rpx;
   overflow-x: auto;
 }

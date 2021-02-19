@@ -21,7 +21,7 @@
 
 <picker bindchange="bindLineTypePickerChange" value="{{lineTypeIndex}}" range="{{lineTypeList}}">
   <view class="row-view between-view pannel-view">
-    <label>曲线类型</label>
+    <label>传感器类型</label>
     <label>{{lineTypeList[lineTypeIndex]}}</label>
   </view>
 </picker>

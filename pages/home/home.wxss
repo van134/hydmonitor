@@ -35,11 +35,16 @@ align-items: left;
 }
 .pannel-view{
   background-color: white;
-  box-shadow:1px 3px 3px 3px lightgray;
+  box-shadow:1px 1px 1px 1px lightgray;
   margin: 30rpx 20rpx;
   border-radius:10rpx;
 }
 .echarts {
   width: 710rpx;
   height: 300px;
+}
+
+.ring-echarts {
+  width: 710rpx;
+  height:200px;
 }

@@ -1,5 +1,43 @@
 <!-- <button bindtap="changeData">修改数据</button> -->
-<view class="col-view pannel-view" wx:for="{{list}}">
+<view class="col-view pannel-view">
+  <view style="margin-top:20rpx;">站点监测状态</view>
+  <canvas class="ring-echarts" canvas-id="state"></canvas>  
+  <view class="row-view">
+    <view style="margin-bottom:30rpx;text-align:center;">
+    <view style="font-size:24rpx;">总站点数</view>
+    <view>14</view>
+  </view>
+  <view style="margin:0rpx 60rpx 30rpx 60rpx;text-align:center;">
+    <view style="font-size:24rpx;">今日异常站点</view>
+    <view style="color:#f47807;">14</view>
+  </view>
+  <view style="margin-bottom:30rpx;text-align:center;">
+    <view style="font-size:24rpx;">本周异常总数</view>
+    <view style="color:#f47807;">10</view>
+  </view>
+  </view>
+</view>
+
+<view class="col-view pannel-view">
+  <view style="margin-top:20rpx;">地下监测站实时监测值</view>
+  <canvas class="echarts" canvas-id="realtime"></canvas>  
+</view>
+
+<view class="col-view pannel-view">
+  <view style="margin-top:20rpx;">近一周地下监测站记录</view>
+  <canvas class="echarts" canvas-id="aweek"></canvas>  
+</view>
+
+<view class="col-view pannel-view">
+  <view style="margin-top:20rpx;">各站点数据总览</view>
+  <canvas class="echarts" canvas-id="shuiwei"></canvas>  
+  <canvas class="echarts" style="margin-top:10rpx;" canvas-id="yuliang"></canvas>  
+  <canvas class="echarts" style="margin-top:10rpx;" canvas-id="shuizhi"></canvas>
+  <canvas class="echarts" style="margin-top:10rpx;" canvas-id="liuliang"></canvas>    
+</view>
+
+
+<!-- <view class="col-view pannel-view" wx:for="{{list}}">
   <view style="margin-top:20rpx;">{{item.title}}</view>
   <canvas class="echarts" canvas-id="{{item.id}}"></canvas>  
-</view>
+</view> -->

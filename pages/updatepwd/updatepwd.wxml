@@ -2,7 +2,7 @@
 <!-- <text>pages/login/login.wxml</text> -->
 
 <view class='wrapper'>
-   <view class='content'>
+   <view class='content pannel-view'>
       <view class='phone row-view'>
         <label class="title">旧密码：</label>
         <input bindinput="oldpwdInput" placeholder='请输入旧密码'></input>

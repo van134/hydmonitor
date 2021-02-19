@@ -2,7 +2,7 @@
 <!-- <text>pages/login/login.wxml</text> -->
 
 <view class='wrapper'>
-   <view class='content'>
+   <view class='content pannel-view'>
       <view class='phone row-view'>
         <label>姓名:</label>
         <input bindinput="nameInput" value="{{name}}" placeholder='请输入姓名'></input>

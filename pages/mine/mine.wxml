@@ -1,5 +1,5 @@
 
-<view class='head-container-view '>
+<view class='head-container-view pannel-view'>
   <view class='head-view col-view' wx:if="{{isLogin}}">
     <!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</button> -->
     <image class='head' src='{{userInfo.avatarUrl}}' bindtap="logout"> </image>
@@ -12,19 +12,9 @@
     <button  bindtap="login">登录</button>
   </view>
 </view>
-<!-- <navigator url='/pages/rentlist/rentlist'> -->
-<!-- <view class='hight-x container-view row-view between-view mar-top-20' bindtap="rentLog">
-  <view class='row-view'>
-    <image class='icon-image' src='../../image/icon_order.png'></image>
-    <view  class='set-title'>租借记录</view>
-  </view>
-  <view class='row-view'>
-    <view></view>
-    <image class='next' src='../../image/next.png'></image>
-  </view>
-</view> --> 
-<!-- </navigator> -->
-<navigator url='/pages/preferencesetting/preferencesetting' >
+
+<view class="pannel-view" style="margin-top:20rpx;"> 
+<!-- <navigator url='/pages/preferencesetting/preferencesetting' >
   <view class='hight-x container-view row-view between-view mar-top-1'>
     <view class='row-view'>
       <image class='icon-image' src='../../image/icon_setting.png'></image>
@@ -34,7 +24,7 @@
       <image class='next' src='../../image/next.png'></image>
     </view>
   </view>
-</navigator>
+</navigator> -->
 <navigator url='/pages/updateuserinfo/updateuserinfo'>
 <view class='hight-x container-view row-view between-view mar-top-1'>
   <view class='row-view'>
@@ -46,6 +36,7 @@
   </view>
 </view>
 </navigator>
+<view style="height:1px;box-shadow:1px 1px 1px 1px lightgray;"></view>
 <navigator url='/pages/updatepwd/updatepwd'>
 <view class='hight-x container-view row-view between-view mar-top-1' >
   <view class='row-view'>
@@ -57,7 +48,7 @@
   </view>
 </view>
 </navigator>
-
+</view>
 
 <view   hidden="{{!isShowModal}}"  class='modal'>
     <view  data-type="mask"  catchtap='hideModal' class='modal-mask' ></view>
