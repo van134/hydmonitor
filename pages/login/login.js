@@ -132,6 +132,7 @@ Page({
       util.toast('请输入账号和密码！');
       return;
     }
+    // getApp().globalData.host = "http://210.13.81.69:6702";
     if(this.data.checked){
       wx.setStorageSync("username",this.data.userName);
       wx.setStorageSync("password",this.data.pwd);

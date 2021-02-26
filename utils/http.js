@@ -63,7 +63,7 @@ let httpGet = (url, data = {}, success = () => { }, fail = () => { }, force = fa
       header: header,
       method: 'GET',
       success: function (res) {
-        console.log("http get ==>"+JSON.stringify(res));
+        // console.log("http get ==>"+JSON.stringify(res));
         if (res.statusCode == 200) {
           
           success(res.data);
@@ -139,7 +139,7 @@ let httpPost = (url, data, success, fail, force = false) => {
       data: data,
       method: 'POST',
       success: function (res) {
-        console.log("http post ==>"+JSON.stringify(res));
+        // console.log("http post ==>"+JSON.stringify(res));
         if (res.statusCode == 200) {
           success(res.data);
         } else if (res.statusCode == 401) {

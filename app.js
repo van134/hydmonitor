@@ -136,6 +136,6 @@ App({
     code: '',
     token:'',
     tokenHead:'',
-    url:'https://hllyy.top'
+    host:'http://210.13.81.69:6702'
   }
 })

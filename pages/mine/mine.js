@@ -152,6 +152,28 @@ Page({
       userInfo: app.globalData.userInfo,
       isLogin:app.globalData.isLogin
     });
+    console.log("gload host:"+app.globalData.host);
+    MyApi.regCode({
+      code:'aaa',
+      success: data => {
+        console.log("success data==>"+JSON.stringify(data));
+        app.globalData.isLogin = true;
+        app.globalData.headerInfo.Authorization = data.tokenHead+" "+data.token;
+        wx.setStorageSync('token', data.tokenHead+" "+data.token);
+        // this.globalData.openid = data.openid;
+        this.initUserInfo();
+      },
+      error: error => {
+        wx.hideLoading({
+          success: (res) => {},
+        });
+        wx.showToast({
+         icon:'none',
+          title: '登录失败:'+error,
+        })
+        console.log("error error==>"+JSON.stringify(error));
+      },
+    });
   },
 
   /**

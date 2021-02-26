@@ -71,37 +71,134 @@ Page({
       dataLabel: true,
    });
   },
+  showRealTimeData(data){
+    let showData = [];
+    for(let i = 0;i<data.length;i++){
+      let item = data[i];
+      let newItem = {name:item.vname,data:[item.v]};
+      showData.push(newItem);
+    }
+    new wxCharts({
+      animation: true, //是否有动画
+      canvasId: 'realtime',
+      type: 'column',
+      extra:{column:{width:40}},
+      categories: ['实时数据'],
+      series: showData
+  //     [{
+  //         name: '温度',
+  //         data: [15],
+  //     },{
+  //       name: '水温',
+  //       data: [20],
+  //   },{
+  //     name: '风力',
+  //     data: [ 45],
+  // },{
+  //   name: '精力',
+  //   data: [37],
+  // }]
+  ,
+      yAxis: {
+          format: function (val) {
+              return val;
+          },
+          min:0
+      },
+      width: this.data.windowWidth-20,
+      height: 300,
+      dataLabel: true,
+      legend:true,
+   });
+  
+  },
+
+  showHistoryData(data){
+    // let categories = [];
+    // let showData = [];
+    // for(let i = 0;i<data.length;i++){
+    //   let item = data[i];
+    //   let newItem = {name:item.vname,data:[item.v]};
+    //   showData.push(newItem);
+    // }
+    new wxCharts({
+      animation: true, //是否有动画
+      canvasId: 'aweek',
+      type: 'area',
+      extra:{lineStyle:'curve'},
+      categories: ['02-08', '02-09', '02-10', '02-11', '02-12', '02-13', '02-14'],
+        series: [{
+            name: '温度',
+            data: [70, 40, 65, 10, 34, 18,11],
+            format: function (val) {
+                return val+ '℃';
+            }
+        }, {
+            name: '水温',
+            data: [15, 20, 45, 37, 4, 80,22],
+            format: function (val) {
+                return  val+ '℃';
+            }
+        }, {
+          name: '风力',
+          data: [35, 27, 15, 7, 14, 10,32],
+          format: function (val) {
+              return  val+ 'm/s';
+          }
+      }, {
+        name: '精力',
+        data: [5, 23, 15, 17, 40, 20,27],
+        format: function (val) {
+            return  val;
+        }
+    }],
+      yAxis: {
+          format: function (val) {
+              return val;
+          },
+          min:0
+      },
+      width: this.data.windowWidth-20,
+      height: 300,
+      dataLabel: false,
+      legend:true,
+    });    
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     let that = this;
-    for(let i = 0;i<this.data.list.length;i++){
-      let item = this.data.list[i];
-      new wxCharts({
-        animation: true, //是否有动画
-        canvasId: item.id,
-        type: item.type,
-        series: [{
-            name: '数据1',
-            data: 151,
-        }, {
-            name: '数据2',
-            data: 351,
-        }, {
-            name: '数据3',
-            data: 781,
-        }],
-        width: this.data.windowWidth-20,
-        height: 300,
-        dataLabel: true,
-     });
-    }
-    // setTimeout(function(){
-    //   that.setData({
-    //     isShow:true
-    //   });
-    // },1000);
+    MyApi.realTimeData({
+      success: data => {
+        //  wx.hideLoading({
+        //    success: (res) => {},
+        //  });
+        this.showRealTimeData(data);
+      },
+      error: error => {
+        // wx.hideLoading({
+        //   success: (res) => {},
+        // });
+        console.log("error data==>"+JSON.stringify(error));
+      },
+    });
+
+    MyApi.historyData({
+      stationId:1,
+			startdate:'2021-02-18',
+			enddate:'2021-02-19',
+			type:'',
+      success: data => {
+        console.log("historyData");
+        this.showHistoryData(data);
+      },
+      error: error => {
+       
+      },
+    });
+    
+
     new wxCharts({
       animation: false, //是否有动画
       canvasId: 'state',
@@ -118,7 +215,6 @@ Page({
     title: {
       name: '2',
       color: '#f47807',
-      
     },
     subtitle: {
       name: '异常站点',
@@ -129,85 +225,6 @@ Page({
       dataLabel: false,
       legend:false,
    });
-
-
-   new wxCharts({
-    animation: true, //是否有动画
-    canvasId: 'realtime',
-    type: 'column',
-    extra:{column:{width:40}},
-    categories: ['实时数据'],
-    series: [{
-        name: '温度',
-        data: [15],
-    },{
-      name: '水温',
-      data: [20],
-  },{
-    name: '风力',
-    data: [ 45],
-},{
-  name: '精力',
-  data: [37],
-}],
-    yAxis: {
-        format: function (val) {
-            return val;
-        },
-        min:0
-    },
-    width: this.data.windowWidth-20,
-    height: 300,
-   
-    dataLabel: true,
-    legend:true,
- });
-
-
- 
- new wxCharts({
-  animation: true, //是否有动画
-  canvasId: 'aweek',
-  type: 'area',
-  extra:{lineStyle:'curve'},
-  categories: ['02-08', '02-09', '02-10', '02-11', '02-12', '02-13', '02-14'],
-    series: [{
-        name: '温度',
-        data: [70, 40, 65, 10, 34, 18,11],
-        format: function (val) {
-            return val+ '℃';
-        }
-    }, {
-        name: '水温',
-        data: [15, 20, 45, 37, 4, 80,22],
-        format: function (val) {
-            return  val+ '℃';
-        }
-    }, {
-      name: '风力',
-      data: [35, 27, 15, 7, 14, 10,32],
-      format: function (val) {
-          return  val+ 'm/s';
-      }
-  }, {
-    name: '精力',
-    data: [5, 23, 15, 17, 40, 20,27],
-    format: function (val) {
-        return  val;
-    }
-}],
-
-  yAxis: {
-      format: function (val) {
-          return val;
-      },
-      min:0
-  },
-  width: this.data.windowWidth-20,
-  height: 300,
-  dataLabel: false,
-  legend:true,
-});
 
 
 
@@ -245,7 +262,6 @@ new wxCharts({
   },
   width: this.data.windowWidth-20,
   height: 300,
- 
   dataLabel: true,
   legend:true,
 });
@@ -285,7 +301,6 @@ new wxCharts({
   },
   width: this.data.windowWidth-20,
   height: 300,
- 
   dataLabel: true,
   legend:true,
 });
@@ -324,7 +339,6 @@ new wxCharts({
   },
   width: this.data.windowWidth-20,
   height: 300,
- 
   dataLabel: true,
   legend:true,
 });
@@ -363,7 +377,6 @@ new wxCharts({
   },
   width: this.data.windowWidth-20,
   height: 300,
- 
   dataLabel: true,
   legend:true,
 });

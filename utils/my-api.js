@@ -1,28 +1,31 @@
+// const app = getApp()
 import {
 	MyUtil
 } from "./common.js";
-
 var MyApi = (function () {
-	var host = 'https://hllyy.top';
+	// var host = getApp()?getApp().globalData.host:'https://hllyy.top';
+
+	console.log("getApp()==>"+getApp());
+	var host = 'http://210.13.81.69:6702';
 	var modules = {
-		frontEnd: host + '/portal'
+		frontEnd: '/zgjyz/json'
 	};
 	var myUrl = {
 		// 提交code
 		regCode: modules.frontEnd + '/sso/auth',
 		// 提交用户信息
 		userInfo: modules.frontEnd + '/sso/userinfo',
-		// 报修
-		repairReport: modules.frontEnd + '/touble/put',
-		// 获取租借列表
-		getRentList: modules.frontEnd + '/order/listOrder',
-		// 订单支付前置，需调用收银台
-		orderPayData: modules.frontEnd + '/order/orderPayData',
-		// 查询订单支付详情
-		orderPayInvoice: modules.frontEnd + '/order/orderPayInvoice',
-		// 查询订单支付结果
-		orderPayResult: modules.frontEnd + '/order/orderPayResult',
 
+
+		// 井下实时数据
+		realTimeData: modules.frontEnd + '/test',
+		// 井下历史数据
+		historyData: modules.frontEnd + '/sjtest',
+		// 分站数据
+		stationsData: modules.frontEnd + '/sjstationtest',
+		// 传感器数据
+		sensorData: modules.frontEnd + '/sjsensortest',
+	
 
 		// 用户订单取消，请求后，后端需修改订单状态为已取消，并记录到状态日志，
 		cancelOrder: modules.frontEnd + '/order/cancelOrder',
@@ -44,12 +47,16 @@ var MyApi = (function () {
 		deleteOrderBill: modules.frontEnd + '/order/deleteOrderBill'
 	};
 	return {
+		getHost:function(path){
+			return (getApp()?getApp().globalData.host:'http://210.13.81.69:6702')+path;
+		},
 		regCode: function({ 
 			code = '', 
 			success = () => {}, 
 			error = () => {} }) {
 			MyUtil.httpRequest({
-				url: '' + myUrl.regCode+'?code='+code+"&from=wx",
+				url: '' + this.getHost(myUrl.regCode)+'?code='+code+"&from=wx",
+				// url: '' + myUrl.regCode+'?code='+code+"&from=wx",
 				method: 'GET',
 				param: {
 					// code: code
@@ -94,96 +101,88 @@ var MyApi = (function () {
 			});
 		},
 		
-		repairReport: function ({ 
-			deviceId,
-			status,
-			comments,
+		realTimeData: function ({ 
 			success = () => { }, 
 			error = () => { } 
 		}) {
 			MyUtil.httpRequest({
-				url: '' + myUrl.repairReport,
+				url: '' +  this.getHost(myUrl.realTimeData) ,
 				method: 'POST',
 				param: {
-					deviceId: deviceId,
-					status: status,
-					comments: comments
 				},
 				callback: function callback(result) {
 					if (result.error) {
 						error(result.errorMessage);
 					} else {
-						if (result.data.code == 200) {
+						// if (result.data.code == 200) {
 							success(result.data);
-						} else {
-							error(result.data.message);
-						}
+						// } else {
+						// 	error(result.data.message);
+						// }
 					}
 				}
 			});
 		},
-		getRentList: function ({ 
-			id,
+		historyData: function ({ 
+			stationId,
+			startdate,
+			enddate,
+			type,
 			success = () => { }, 
 			error = () => { } 
 		}) {
 			MyUtil.httpRequest({
-				url: '' + myUrl.getRentList,
-				method: 'GET',
-				param: {
-					id: id
-				},
-				callback: function callback(result) {
-					if (result.error) {
-						error(result.errorMessage);
-					} else {
-						if (result.data.code == 200) {
-							success(result.data.data);
-						} else {
-							error(result.data.message);
-						}
-					}
-				}
-			});
-		},
-		orderPayData: function ({ 
-			id,
-			payChannel,
-			code,
-			success = () => { }, 
-			error = () => { } 
-		}) {
-			MyUtil.httpRequest({
-				url: '' + myUrl.orderPayData,
+				url: '' + this.getHost(myUrl.historyData) ,
 				method: 'POST',
 				param: {
-					id: id,
-					payChannel: payChannel,
-				  code:code
+					stationId: stationId,
+					startdate: startdate,
+					enddate: enddate,
+					type: type
 				},
 				callback: function callback(result) {
 					if (result.error) {
 						error(result.errorMessage);
 					} else {
-						if (result.data.code == 0) {
-							success(result.data.data);
-						} else {
-							error(result.data.message);
-						}
+						// if (result.data.code == 200) {
+							success(result.data);
+						// } else {
+						// 	error(result.data.message);
+						// }
 					}
 				}
 			});
 		},
-		orderPayResult: function ({ 
-			id,
+		stationsData: function ({ 
+			success = () => { }, 
+			error = () => { } 
+		}) {
+			MyUtil.httpRequest({
+				url: '' + this.getHost(myUrl.stationsData),
+				method: 'POST',
+				param: {
+				},
+				callback: function callback(result) {
+					if (result.error) {
+						error(result.errorMessage);
+					} else {
+						// if (result.data.code == 0) {
+							success(result.data);
+						// } else {
+						// 	error(result.data.message);
+						// }
+					}
+				}
+			});
+		},
+		sensorData: function ({ 
 			success = () => { }, 
 			error = () => { } 
 		}) {
 			ZgtlMpaasUtil.httpRequest({
-				url: '' + myUrl.orderPayResult,
+				url: '' + this.getHost(myUrl.sensorData),
 				method: 'POST',
 				param: {
-					id: id
 				},
 				callback: function callback(result) {
 					if (result.error) {
